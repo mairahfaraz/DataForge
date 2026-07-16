@@ -27,7 +27,7 @@ def get_consumer(group_id: str, topics: list[str]) -> Consumer:
     consumer = Consumer({
         "bootstrap.servers": settings.kafka_bootstrap_servers,
         "group.id": group_id,
-        "auto.offset.reset": "latest",   # BUG DF-01: should be "earliest"
+        "auto.offset.reset": "earliest",   # BUG DF-01: should be "earliest"
         "enable.auto.commit": True,
         "auto.commit.interval.ms": 5000,
     })
