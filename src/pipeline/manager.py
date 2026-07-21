@@ -32,8 +32,7 @@ SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
 # Fix: use a database-level advisory lock (SELECT pg_try_advisory_lock(pipeline_id))
 # or a Redis distributed lock (SET lock NX EX ttl) before starting a run.
 
-CHECKPOINT_DIR = "/tmp/dataforge/checkpoints"  # BUG DF-09: ephemeral path
-
+CHECKPOINT_DIR = settings.checkpoint_dir
 
 async def run_pipeline(pipeline_id: str) -> str:
     async with SessionLocal() as session:

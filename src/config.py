@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     kafka_bootstrap_servers: str = "localhost:9092"
     redis_url: str = "redis://localhost:6379"
     pipeline_schedule_interval_minutes: int = 15
+    checkpoint_dir: str = "/data/checkpoints"
     log_level: str = "INFO"
 
     class Config:
